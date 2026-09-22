@@ -1,17 +1,28 @@
 // 실습 3-응용. 멋사 태그 만들기
 //
 // 목표: PostPicker와 같은 배열 상태 + $active 패턴을 "기수"와 "역할", 두 그룹에
-// 각각 적용해 "나를 소개하는 태그"를 완성하세요.
+// 각각 적용해 멋사 태그를 완성하세요.
 //
 // 조건: 기수도 역할도 여러 개 선택 가능해야 합니다.
-// (예: 14기 아사로 시작해 15기에 운영진이 된 경우 둘 다 선택)
+// (예: 13기 아사로 시작해 14기에 운영진이 된 경우 둘 다 선택)
 // 즉 그룹별로 useState<string[]>([])를 각각 만들어서
 // PostPicker와 동일한 토글 로직을 두 번 적용하세요.
 
 import styled from "styled-components";
 
-const GENERATIONS = ["11기", "12기", "13기", "14기", "15기"];
+const GENERATIONS = ["11기", "12기", "13기", "14기", "15기", "16기"];
 const ROLES = ["아사", "운영진"];
+
+const TagGroup = styled.div`
+  margin-bottom: 20px;
+`;
+
+const GroupLabel = styled.p`
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+`;
 
 // TODO 1: Tag를 styled.button<{ $active: boolean }>로 만드세요. ($ 접두사 필수!)
 
@@ -24,16 +35,18 @@ function LikelionPicker() {
   return (
     <div>
       <h4 style={{ color: "darkorange" }}>나는?</h4>
-      <div>
+      <TagGroup>
+        <GroupLabel>기수</GroupLabel>
         {GENERATIONS.map((gen) => (
           <span key={gen}>{gen}</span>
         ))}
-      </div>
-      <div>
+      </TagGroup>
+      <TagGroup>
+        <GroupLabel>역할</GroupLabel>
         {ROLES.map((role) => (
           <span key={role}>{role}</span>
         ))}
-      </div>
+      </TagGroup>
     </div>
   );
 }
