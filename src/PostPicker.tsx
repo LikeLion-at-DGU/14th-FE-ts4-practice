@@ -38,7 +38,8 @@ const PostList = styled.div`
   max-width: 480px;
 `;
 
-// TODO 1: PostCard를 styled.div<{ $active: boolean }>로, PostTitle을 styled.h3<{ $active: boolean }>로 만드세요.
+// TODO 1: PostCard, PostTitle, FavoriteButton을 각각 styled.div<{ $active: boolean }>,
+//         styled.h3<{ $active: boolean }>, styled.button<{ $active: boolean }>로 만드세요.
 //         (커스텀 prop 이름 앞에는 반드시 $를 붙입니다!)
 const PostCard = styled.div`
   background: white;
@@ -50,7 +51,7 @@ const PostCard = styled.div`
   justify-content: space-between;
   gap: 16px;
   text-align: left;
-  /* TODO 2: $active 값에 따라 background-color와 border-color를 흰색/회색 테두리 ↔ 파랑(#2f6feb)으로 분기하세요. */
+  /* TODO 2: $active 값에 따라 background-color와 border-color를 회색 테두리 ↔ 파랑(#2f6feb)으로 분기하세요. */
 `;
 
 const PostTitle = styled.h3`
@@ -59,7 +60,7 @@ const PostTitle = styled.h3`
   font-weight: 700;
   line-height: 1.4;
   color: black;
-  /* TODO 3: $active 값에 따라 color를 검정 ↔ 흰색으로 함께 분기하세요. (파란 배경 위 검정 글씨는 안 보여요!) */
+  /* TODO 3: $active 값에 따라 color를 검정 ↔ 흰색으로 함께 분기하세요. */
 `;
 
 const FavoriteButton = styled.button`
@@ -71,16 +72,17 @@ const FavoriteButton = styled.button`
   border-radius: 8px;
   padding: 8px 14px;
   cursor: pointer;
-  background: white;
+  background: none;
   color: black;
   font-size: 14px;
   font-weight: 500;
+  /* TODO 4: $active 값에 따라 color를 검정 ↔ 흰색으로 분기하세요. */
 `;
 
 function PostPicker() {
-  // TODO 4: useState<Post[]>([])로 favorites 상태를 만드세요. (빈 배열엔 제네릭 필수!)
+  // TODO 5: useState<Post[]>([])로 favorites 상태를 만드세요. (빈 배열엔 제네릭 필수!)
 
-  // TODO 5: toggleFavorite 함수를 만드세요.
+  // TODO 6: toggleFavorite 함수를 만드세요.
   //         힌트: prev.some((p) => p.id === post.id) ? prev.filter(...) : [...prev, post]
   //         문자열이 아니라 객체라서 .includes() 대신 .some()으로 id를 비교합니다.
   // 여기에 만들기 >>
@@ -90,7 +92,7 @@ function PostPicker() {
       {POSTS.map((post) => (
         <PostCard key={post.id} $active={false}>
           <PostTitle $active={false}>{post.title}</PostTitle>
-          <FavoriteButton onClick={() => {}}>
+          <FavoriteButton $active={false} onClick={() => {}}>
             <BookmarkIcon />
             담기
           </FavoriteButton>

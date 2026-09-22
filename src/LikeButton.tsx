@@ -16,7 +16,7 @@ const StyledLike = styled.button`
 `;
 
 function LikeButton() {
-  // TODO 3: useState로 liked 상태를 만드세요. (초기값 false, 제네릭 불필요)
+  // TODO 3: useState로 liked 상태를 만드세요. (초기값 false, 이번 실습에서는 boolean으로 자동 추론되기 때문에 제네릭 불필요!!)
 
   // TODO 4: 클릭할 때마다 liked를 토글하는 함수를 만드세요.
   //         힌트: setLiked((v) => !v)
@@ -29,7 +29,3 @@ function LikeButton() {
 }
 
 export default LikeButton;
-
-// ✅ 체크포인트
-// [ ] $liked boolean이 styled 컴포넌트에 넘어가 색이 토글되는 걸 확인했다
-// [ ] 일부러 $liked를 liked로 바꿔서(접두사 제거) 콘솔 경고를 직접 봤다
